@@ -12,22 +12,17 @@ service = Service(driver_path)
 driver = webdriver.Chrome(service=service)
 driver.maximize_window()
 
-# open the url
-driver.get('https://www.google.com/')
+sleep(5)
 
-# populate search field
-search = driver.find_element(By.NAME, 'q')
-search.clear()
-search.send_keys('Treadmill')
+driver.get("https://www.amazon.com/")
+sleep(5)
 
-# wait for 4 sec
-sleep(4)
+#input search text
 
-# click search button
-driver.find_element(By.NAME, 'btnK').click()
+driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('treadmill')
+sleep(5)
 
-# verify search results
-assert 'treadmill' in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"
-print('Test Passed')
+#click on search button
 
-driver.quit()
+driver.find_element(By.ID,'nav-search-submit-button').click()
+sleep(5)
