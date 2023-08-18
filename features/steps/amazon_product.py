@@ -1,7 +1,7 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
-from time import sleep
-
+#from time import sleep
+from selenium.webdriver.support import expected_conditions as EC
 
 SEARCH_FIELD = (By.ID, 'twotabsearchtextbox')
 SEARCH_BUTTON = (By.ID, 'nav-search-submit-button')
@@ -15,22 +15,24 @@ SUB_TOTAL_BUTTON = (By.CSS_SELECTOR, "#sc-subtotal-label-buybox")
 @when('search for treadmill')
 def search_product(context):
     context.driver.find_element(*SEARCH_FIELD).send_keys('treadmill')
-    context.driver.find_element(*SEARCH_BUTTON).click()
+    context.driver.wait.until(EC.element_to_be_clickable(SEARCH_BUTTON)).click()
+    #context.driver.find_element(*SEARCH_BUTTON).click()
 
-sleep(3)
+
 
 
 @then('click on a particular product')
 def particular_product_click(context):
-    context.driver.find_element(*PARTICULAR_PRODUCT).click()
+    context.driver.wait.until(EC.element_to_be_clickable(PARTICULAR_PRODUCT)).click()
 
 
 @then('Add to cart')
 def add_cart(context):
-    context.driver.find_element(*ADD_CART_BUTTON).click()
+    #context.driver.find_element(*ADD_CART_BUTTON).click()
+    context.driver.wait.until(EC.element_to_be_clickable(ADD_CART_BUTTON)).click()
     context.driver.find_element(*NO_PROTECTIONPLAN_BUTTON).click()
     context.driver.find_element(*G0_TO_CART_BUTTON).click()
-sleep(3)
+
 
 
 @then('verify the added item in the cart')

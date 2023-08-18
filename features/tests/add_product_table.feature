@@ -7,5 +7,5 @@ Feature: Test for Amazon product search
     Then Verify <result> is correct
     Examples:
     |product      |result    |
-    |spoon            |"spoon"          |
-    |dress            |"dress"          |
+    |spoon        |"spoon"   |
+    |dress        |"dress"   |
