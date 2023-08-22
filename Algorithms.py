@@ -36,18 +36,18 @@ print('sum of the digits',sum_numbers(6))
 
 def find_max(a: int, b: int, c: int):
 
-    if a < b and b < c:
+    if a < b and b > c:
         max = b
     elif b < a and c < a:
         max = a
-    elif b < a and a < c:
+    elif b < c and a < c:
         max = c
-    else:
-        max = 0
+    #else:
+        #max = 0
 
     return(max)
 
-print(find_max(124, 21, 32))
+print(find_max(12, 21, 132))
 
 #4 Leap year. When a function gets a year, the code detects if it is a leap year or not.
 

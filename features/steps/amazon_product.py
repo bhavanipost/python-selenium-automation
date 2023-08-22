@@ -14,11 +14,10 @@ SUB_TOTAL_BUTTON = (By.CSS_SELECTOR, "#sc-subtotal-label-buybox")
 
 @when('search for treadmill')
 def search_product(context):
-    context.driver.find_element(*SEARCH_FIELD).send_keys('treadmill')
-    context.driver.wait.until(EC.element_to_be_clickable(SEARCH_BUTTON)).click()
+    #context.driver.find_element(*SEARCH_FIELD).send_keys('treadmill')
+    #context.driver.wait.until(EC.element_to_be_clickable(SEARCH_BUTTON)).click()
     #context.driver.find_element(*SEARCH_BUTTON).click()
-
-
+    context.app.header.search_product('treadmill')
 
 
 @then('click on a particular product')

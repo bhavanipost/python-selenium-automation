@@ -8,9 +8,9 @@ NAME_ITEM = (By.XPATH, "//span[@class='a-color-state a-text-bold']")
 
 @when('Searching for {an_item}')
 def item_search(context, an_item):
-    context.driver.find_element(*SEARCH_NAME).send_keys(an_item)
-    context.driver.find_element(*SEARCH_BTN).click()
-
+    #context.driver.find_element(*SEARCH_NAME).send_keys(an_item)
+    #context.driver.find_element(*SEARCH_BTN).click()
+    context.app.header.search_product(an_item)
 
 @then('Verify {expected_result} is correct')
 def verify_search(context,expected_result):
