@@ -16,3 +16,6 @@ class Page:
 
     def display(self, *locator):
         self.driver.find_element(*locator).is_displayed
+
+
+

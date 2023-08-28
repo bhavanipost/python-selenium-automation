@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 RETURN_ORDERS_ICON = (By.ID, 'nav-orders')
 SIGN_IN_PAGE_CHECK = (By.XPATH, "//h1[@class='a-spacing-small']")
 ER_EMAIL_INPUT = (By.XPATH, "//input[@type='email']")
-AR_EMAIL_INPUT = (By.CSS_SELECTOR, '#ap_email')
-
+#AR_EMAIL_INPUT = (By.CSS_SELECTOR, '#ap_email')
+AR_EMAIL_INPUT = (By.ID, 'ap_email')
 @given('Open Amazon page')
 def open_amazon(context):
     #context.driver.get('https://www.amazon.com/')

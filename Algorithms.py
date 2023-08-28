@@ -37,17 +37,19 @@ print('sum of the digits',sum_numbers(6))
 def find_max(a: int, b: int, c: int):
 
     if a < b and b > c:
-        max = b
+        #max = b
+        return b
     elif b < a and c < a:
-        max = a
-    elif b < c and a < c:
-        max = c
+        #max = a
+        return a
+    #elif b < c and a < c:
+        #max = c
     #else:
         #max = 0
 
-    return(max)
-
-print(find_max(12, 21, 132))
+    #return(max)
+    return c
+print(find_max(12, 321, 132))
 
 #4 Leap year. When a function gets a year, the code detects if it is a leap year or not.
 
@@ -69,6 +71,25 @@ def leap_year(year: int):
 
 print(leap_year(2001))
 
+#second way
+def leap_year(year: int):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                print(f"{year} is a leap year")
+            else:
+                print(f"{year} is not a leap year")
+        else:
+            print(f"{year} is a leap year")
+    else:
+        print(f"{year} is not a leap year")
+
+leap_year(1992)#true
+leap_year(2000)#true
+leap_year(2100)#false
+leap_year(2071)#false
+
+
 
 #5 Fibonacci. The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones. Print out the Fibonacci sequence until the given n-th in the sequence.
 #Example: n = 7, print out the sequence: 0, 1, 1, 2, 3, 5, 8
@@ -82,6 +103,8 @@ def generate_fibonacci_sequence(n: int):
     return fib_sequence
 
 print(generate_fibonacci_sequence(10))
+#On
+
 
 
 
