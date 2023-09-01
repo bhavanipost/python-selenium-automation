@@ -2,7 +2,8 @@
 Feature: Test for Best Seller to verify 5 links
   # Enter feature description here
 
-  Scenario: Verify that Best Seller has 5 links
+  Scenario: Verify that Best Seller has 5 top menu
     Given Open Amazon page
-    When click on Best Seller
-    Then Verify that Best Seller has 5 links
+    When clicking on the Best Seller
+    Then Verify that Best Seller has 5 top menu
+    Then Verify each 5 top menu pages opens
