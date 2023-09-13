@@ -3,13 +3,11 @@
 
 def reverse_integer(n: int):
     string = str(n)
-    if string[0] == "-":
-        return int("-" + string[:0:-1])
-    else:
-        return int(string[::-1])
+    return int("-" + string[:0:-1])
+
 
 print(reverse_integer(-123))
-print(reverse_integer(124))
+print(reverse_integer(-124))
 
 
 #Task 2. Write a function that takes two strings as input and returns True if they are anagrams of each other, and False otherwise.
