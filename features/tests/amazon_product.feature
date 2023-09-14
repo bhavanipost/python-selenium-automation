@@ -4,7 +4,7 @@ Feature:User check added item in cart
   Scenario Outline: Check for added item in cart
     Given Open Amazon page
     When search for treadmill
-    Then click on a particular product
+    Then clicking on a particular product
     When wait for 3 sec
     Then Add product to cart
     When wait for 3 sec

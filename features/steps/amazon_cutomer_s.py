@@ -13,7 +13,7 @@ HELP_TOPICS_LINK = (By.CSS_SELECTOR, '.help-topics')
 
 
 
-@when('click on customer service')
+@when('clicked on customer service')
 def click_customer_service(context):
     context.driver.find_element(*CUSTOMER_SERVICE_PAGE).click()
 

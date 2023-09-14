@@ -4,7 +4,7 @@ Feature: Test for UI elements in Customer servive page
 
   Scenario: Verify UI elements are present in the customer service  page
     Given Open Amazon page
-    When click on customer service
+    When clicked on customer service
     Then check for header is  visible
     Then check for UI elements
     Then verify all 11 UI elements

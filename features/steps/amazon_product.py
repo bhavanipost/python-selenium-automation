@@ -21,7 +21,7 @@ def search_product(context):
     context.app.header.search_product('treadmill')
 
 
-@then('click on a particular product')
+@then('clicking on a particular product')
 def particular_product_click(context):
     #context.driver.wait.until(EC.element_to_be_clickable(PARTICULAR_PRODUCT)).click()
     context.app.header.click_product()
