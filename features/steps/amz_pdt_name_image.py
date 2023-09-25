@@ -9,6 +9,11 @@ PRODUCT_IMAGE = (By.CSS_SELECTOR, '.s-image[data-image-latency="s-product-image"
 #PRODUCT_IMAGE = (By.CSS_SELECTOR, '.s-image')
 
 
+@when('Select department by alias {dept}')
+def select_dept(context, dept):
+    context.app.header.select_dept(dept)
+
+
 @then('Verify search result is {expected_result}')
 def verify_search_result(context, expected_result):
     actual_result = context.driver.find_element(*SEARCH_RESULT).text
@@ -27,3 +32,8 @@ def verify_product_name_image(context):
         print(product_name)
         assert  product_name, 'Product name not shown'
         product.find_element(*PRODUCT_IMAGE)
+
+
+@then('Verify {dept} department is selected')
+def verify_dept_selected(context, dept):
+        context.app.header.verity_dept_selected(dept)

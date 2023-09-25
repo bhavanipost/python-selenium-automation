@@ -119,4 +119,23 @@ input_digits = [9, 9 ,9]
 plus_one(input_digits)
 print(input_digits)
 
+def plus_one(arr: list):
+    arr[-1] += 1
+    for i in reversed(range(1, len(arr))):
+        if arr[i] != 10:
+            break
+        else:
+            arr[i] = 0
+            arr[i-1] += 1
+
+    if arr[0] == 10:
+        arr[0] = 1
+        arr.append(0)
+
+    return arr
+
+test_data = [9, 9, 9]
+print(plus_one(test_data))
+
+
 
