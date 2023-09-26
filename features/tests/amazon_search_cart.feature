@@ -1,6 +1,6 @@
 # Created by bhavani at 8/1/23
 Feature:Testing on empty Amazon cart
-
+  @smokebr
   Scenario:User search on Amazon cart is empty
     Given Open Amazon page
     When Click on empty cart

@@ -1,6 +1,6 @@
 # Created by bhavani at 8/22/23
 Feature: Testing for the Sign in page when logged out user click orders
-
+  @smoke
   Scenario: Logged out user sees Sign in page when clicking Orders
     Given Open Amazon page
     When Click on Returns and Orders

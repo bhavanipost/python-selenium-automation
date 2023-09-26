@@ -36,4 +36,4 @@ def verify_product_name_image(context):
 
 @then('Verify {dept} department is selected')
 def verify_dept_selected(context, dept):
-        context.app.header.verity_dept_selected(dept)
+    context.app.header.verity_dept_selected(dept)

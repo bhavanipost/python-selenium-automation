@@ -16,6 +16,7 @@ class Header(Page):
     NEW_ARRIVALS = (By.CSS_SELECTOR, 'a[href="/New-Arrivals/b/?_encoding=UTF8&node=17020138011&ref_=sv_sl_6"]')
     WOMENS_NEW_ARRIVALS = (By.CSS_SELECTOR, '.mm-merch-panel img[src*="https://m.media-amazon.com/images/G/01//AMAZON_FASHION/2022/"]')
     ALL_DROPDOWN = (By.ID, 'searchDropdownBox')
+    SELECT_PRODUT_HOODIE = (By.CSS_SELECTOR, '.s-image-padding')
     #SIGN_IN_PAGE_CHECK = (By.XPATH, "//h1[@class='a-spacing-small']")
     #ER_EMAIL_INPUT = (By.XPATH, "//input[@type='email']")
     #AR_EMAIL_INPUT = (By.CSS_SELECTOR, '#ap_email')
@@ -31,11 +32,15 @@ class Header(Page):
         self.input_text(product, *self.SEARCH_FIELD)
         self.click(*self.SEARCH_BTN)
 
+    def select_hoodie_product(self):
+        self.click(*self.SELECT_PRODUT_HOODIE)
+
     def hover_lang(self):
         actions = ActionChains(self.driver)
         lang = self.find_element(*self.LANG_SELECTION)
         actions.move_to_element(lang)
         actions.perform()
+
 
     def hover_new_arrivals(self):
         actions = ActionChains(self.driver)

@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-#from support.logger import logger
+from support.logger import logger
 from time import sleep
 
 class Page:
@@ -17,6 +17,7 @@ class Page:
         self.driver.refresh()
 
     def click(self, *locator):
+        logger.info(f'Clicking on {locator}')
         self.driver.find_element(*locator).click()
 
 
@@ -25,19 +26,23 @@ class Page:
 
 
     def find_element(self, *locator):
+        logger.info(f'Searching for {locator}')
         return self.driver.find_element(*locator)
 
 
     def find_elements(self, *locator):
+        logger.info(f'Searching for number of {locator}')
         return self.driver.find_elements(*locator)
 
 
     def get_text(self, *locator):
+        logger.info(f'get the text from {locator}')
         return self.driver.find_element(*locator)
 
 
     def input_text(self, text, *locator):
         e = self.driver.find_element(*locator)
+        logger.info(f'Inputting text: "{text}"')
         e.send_keys(text)
 
     def get_current_window(self):
@@ -45,7 +50,7 @@ class Page:
 
     def get_windows(self):
         windows = self.driver.window_handles
-        print(windows)
+        logger.info(f'go to the next windows')
         return windows
 
     def switch_to_new_window(self):
@@ -57,7 +62,8 @@ class Page:
 
 
     def switch_to_window(self, window_id):
-        print(f'Switching to {window_id}')
+        logger.info(f'Switching to: {window_id}')
+        #print(f'Switching to {window_id}')
         self.driver.switch_to.window(window_id)
 
     def close_page(self):
@@ -66,9 +72,8 @@ class Page:
 
     def wait_for_element_clickable(self, *locator):
         self.wait.until(
-            EC.element_to_be_clickable(locator),
-            message=f'Element not clickable: {locator}'
-        )
+            EC.element_to_be_clickable(locator))
+        logger.info(f'Element not clickable: {locator}')
 
 
     def wait_for_element_clickable_click(self, *locator):
@@ -90,6 +95,7 @@ class Page:
             EC.invisibility_of_element_located(locator),
             message=f'Element did not disappear: {locator}'
         )
+        logger.info(f'Element did not disappear: {locator}')
 
 
     def verify_text(self, expected_text, *locator):
@@ -97,6 +103,7 @@ class Page:
         assert actual_text == expected_text, \
             f'Error, expected {expected_text} did not match actual {actual_text}'
 
+        logger.info(f'expected {expected_text} did not match actual {actual_text}')
 
     def verify_partial_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
@@ -105,6 +112,7 @@ class Page:
 
 
     def verify_partial_url(self, expected_part_of_url):
+        logger.info(f'expected partial url{expected_part_of_url}')
         self.wait.until(EC.url_contains(expected_part_of_url))
 
 
@@ -113,4 +121,6 @@ class Page:
         elements_count = self.find_elements(*locator)
         assert len(elements_count) == number, \
             f'Expected {number} links but got {len(elements_count)}'
+        logger.info(f'Expected {number} links but got {len(elements_count)}')
+
 

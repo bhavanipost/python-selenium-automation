@@ -3,12 +3,13 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
-# from support.logger import logger
+from support.logger import logger
 from selenium.webdriver.chrome.options import Options
+#behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/bestsellers.feature
 
 
-# def browser_init(context):
-def browser_init(context, scenario_name):  # add scenario_name if you want to use it in Browserstack
+def browser_init(context):
+#def browser_init(context, scenario_name):  # add scenario_name if you want to use it in Browserstack
 
     """
     :param context: Behave context
@@ -68,21 +69,21 @@ def browser_init(context, scenario_name):  # add scenario_name if you want to us
     context.app = Application(context.driver)
 
 
-# def before_scenario(context, scenario):
-#     print('\nStarted scenario: ', scenario.name)
-#     logger.info(f'\nStarted scenario: {scenario.name}')
-#     browser_init(context)
-#     #browser_init(context, scenario.name)
+def before_scenario(context, scenario):
+    print('\nStarted scenario: ', scenario.name)
+    logger.info(f'\nStarted scenario: {scenario.name}')
+    browser_init(context)
+    #browser_init(context, scenario.name)
 
 
-# def before_step(context, step):
-#     print('\nStarted step: ', step)
-#     logger.info(f'Started step: {step}')
-#
-# def after_step(context, step):
-#     if step.status == 'failed':
-#         print('\nStep failed: ', step)
-#         logger.error(f'Step failed: {step}')
+def before_step(context, step):
+    print('\nStarted step: ', step)
+    logger.info(f'Started step: {step}')
+
+def after_step(context, step):
+    if step.status == 'failed':
+        print('\nStep failed: ', step)
+        logger.error(f'Step failed: {step}')
 
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()
